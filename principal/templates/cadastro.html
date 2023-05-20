@@ -1,0 +1,58 @@
+{%extends 'base.html'%}
+{%block 'conteudo'%}
+<div>
+    <form action="">
+        <div class="divnome">
+            <label class="lblnome" for="nome">Qual e o seu nome ?</label>
+            <input class="edtnome" value="{{request.POST.nome}}" maxlength="50" type="text" name="nome" id="nome" placeholder="Ex.: João">
+        </div>
+        <div class="divsobrenome">
+            <label class="lblsobrenome" for="sobrenome">Qual e o seu sobre nome ?</label>
+            <input class="edtsobrenome" value="{{request.POST.sobrenome}}" maxlength="100" name="sobrenome" id="sobrenome" placeholder="Ex.: Silva Santos" type="text">
+        </div>
+        <div class="divemail">
+            <label class="lblemail" for="email">Digite o seu e-mail</label>
+            <input class="edtemail" value="{{request.POST.email}}" maxlength="200" name="email" id="email" placeholder="Ex.: Joao@email.com.br" type="email">
+        </div>
+        <div class="divconfirmaemail">
+            <label class="lblconfirmaemail" for="confirmaemail">Confirme seu e-mail</label>
+            <input class="edtconfirmaemail" maxlength="200" name="confirmaemail" id="confirmaemail" type="email">
+        </div>
+        <div class="divtelefone">
+            <label class="lbltelefone" for="telefone">Qual e o seu numero de telefone ?</label>
+            <input class="edttelefone" maxlength="15" value="{{request.POST.telefone}}" name="telefone" id="telefone" type="text" pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}" placeholder="(00) 1234-5678" required>
+            <script>
+                var meuInput = document.getElementById("telefone");
+                
+                meuInput.addEventListener("input", function() {
+                  var valor = this.value;
+                  
+                  // Remove todos os caracteres não numéricos
+                  valor = valor.replace(/\D/g, "");
+                  
+                  // Aplica a máscara de telefone
+                  if (valor.length > 0) {
+                    valor = "(" + valor;
+                  }
+                  if (valor.length > 3) {
+                    valor = valor.slice(0, 3) + ") " + valor.slice(3);
+                  }
+                  if (valor.length > 10) {
+                    valor = valor.slice(0, 10) + "-" + valor.slice(10);
+                  }
+                  
+                  this.value = valor;
+                });
+              </script>
+        </div>
+        <div class="divsenha">
+            <label class="lblsenha" for="senha">Escolha uma senha</label>
+            <input class="edtsenha" maxlength="16" type="password" name="senha" id="senha">
+        </div>
+        <div class="confirmasenha">
+            <label class="lblconfirmasenha" for="confirmasenha">Confirme sua senha</label>
+            <input class="edtconfirmasenha" maxlength="16" name="confirmasenha" id="confirmasenha" type="password">
+        </div>
+    </form>
+</div>
+{%endblock%}

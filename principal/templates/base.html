@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{%block 'titulo'%}{%endblock%} - E-commerce</title>
+</head>
+<body>
+    <style>
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>    
+    <header>
+        <nav>
+            <a href="">PROJECT</a>
+            <div>
+                <ul>
+                    <li><a href="">entrar</a></li>
+                    <li><a href="">produtos</a></li>
+                    <li><a href=""></a>categorias</li>
+                    <li><a href=""></a>sobre</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {%block 'conteudo'%}
+        {%endblock%}
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
